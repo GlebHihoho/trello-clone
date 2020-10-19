@@ -1,23 +1,21 @@
 import React from 'react';
 
-function App() {
+import { Column } from './Column';
+import { AddNewItem } from './AddNewItem';
+import { useAppState } from './AppStateContext';
+import { AppContainer } from './styles';
+
+const App = () => {
+  const { state } = useAppState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      {state.lists.map((list, i) => (
+        <Column key={list.id} text={list.text} index={i} />
+      ))}
+      <AddNewItem toggleButtonText="+ Add another list" onAdd={console.log} />
+    </AppContainer>
   );
-}
+};
 
 export default App;
