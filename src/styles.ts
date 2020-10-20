@@ -35,7 +35,7 @@ export const ColumnTitle = styled.div`
   font-weight: bold;
 `;
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(DragPreviewContainer)`
   cursor: pointer;
   background-color: #fff;
   margin-bottom: 0.5rem;
